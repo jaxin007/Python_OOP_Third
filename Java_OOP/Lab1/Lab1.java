@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class lab1 {
+class Lab1 {
     public static void main(String[] args) {
         JFrame frame = new JFrame("First");
         frame.setSize(100, 80);

@@ -31,7 +31,7 @@ class Window {
     }
 }
 
-class lab2 {
+class Lab2 {
     public static void main(String[] args) {
         JButton btn = new JButton("Create");
         JFrame frame = new JFrame("First");
