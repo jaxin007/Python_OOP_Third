@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1576841026 source:c:\users\dima\desktop\programm_university\diskret_math\lab3\main.cpp
+	<cstdio>
+	<iostream>
+	<cstdlib>
+

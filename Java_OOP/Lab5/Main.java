@@ -1,12 +1,11 @@
-package Lab5;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class Main {
-    static Plant Palnt;
-    static Flower Flower;
+
+    static Dishes Dishes;
+    static Cup Cup;
 
     public static void main(String[] args) {
         JFrame window = new JFrame("Lab5");
@@ -16,8 +15,8 @@ public class Main {
         GridLayout gbl = new GridLayout(3, 2);
         window.setLayout(gbl);
 
-        String[] listConstr = { "Plant(String a)", "Plant(String a, int b)", "Flower(int a, int b, int c)",
-                "Flower(int a, int b)" };
+        String[] listConstr = { "dishes(String a)", "dishes(String a, int b)", "cup(int a, int b, int c)",
+                "cup(int a, int b)" };
         JPanel pnl = new JPanel();
         JButton set = new JButton("Setting");
         JComboBox constr = new JComboBox(listConstr);
@@ -37,62 +36,63 @@ public class Main {
 
         create.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (Palnt != null) {
-                    window.getContentPane().remove(Palnt);
-                    Palnt = null;
+                if (Dishes != null) {
+                    window.getContentPane().remove(Dishes);
+                    Dishes = null;
                 }
-                if (Flower != null) {
-                    window.getContentPane().remove(Flower);
-                    Flower = null;
+                if (Cup != null) {
+                    window.getContentPane().remove(Cup);
+                    Cup = null;
 
                 }
 
-                if ((String) constr.getSelectedItem() == "Plant(String a)") {
-                    Palnt = new Plant("Glass");
+                if ((String) constr.getSelectedItem() == "dishes(String a)") {
+                    Dishes = new Dishes("Glass");
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Palnt);
+                    window.getContentPane().add(Dishes);
                 }
-                if ((String) constr.getSelectedItem() == "Plant(String a, int b)") {
-                    Palnt = new Plant("Glass", 10);
+                if ((String) constr.getSelectedItem() == "dishes(String a, int b)") {
+                    Dishes = new Dishes("Glass", 10);
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Palnt);
+                    window.getContentPane().add(Dishes);
                 }
-                if ((String) constr.getSelectedItem() == "Flower(int a, int b, int c)") {
-                    Flower = new Flower(23, 12, 43);
+                if ((String) constr.getSelectedItem() == "cup(int a, int b, int c)") {
+                    Cup = new Cup(23, 12, 43);
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Flower);
+                    window.getContentPane().add(Cup);
                 }
-                if ((String) constr.getSelectedItem() == "Flower(int a, int b)") {
-                    Flower = new Flower(12, 23);
+                if ((String) constr.getSelectedItem() == "cup(int a, int b)") {
+                    Cup = new Cup(12, 23);
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Flower);
+                    window.getContentPane().add(Cup);
                 }
                 result.setText("Create object");
             }
         });
         set.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (Palnt != null) {
-                    Palnt.DrawWindow();
+                if (Dishes != null) {
+                    Dishes.DrawWindow();
                 }
-                if (Flower != null) {
-                    Flower.DrawWindow();
+                if (Cup != null) {
+                    Cup.DrawWindow();
                 }
             }
         });
         showRes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                if (Palnt != null) {
+                if (Dishes != null) {
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Palnt);
-                    result.setText("col:" + Palnt.col + "\n" + "type:" + Palnt.type + "\n" + "size:" + Palnt.size);
+                    window.getContentPane().add(Dishes);
+                    result.setText("col:" + Dishes.col + "\n" + "material:" + Dishes.material + "\n" + "prise:"
+                            + Dishes.prise);
                 }
-                if (Flower != null) {
+                if (Cup != null) {
                     window.getContentPane().repaint();
-                    window.getContentPane().add(Flower);
-                    result.setText("diameter:" + Flower.diameter + "\n" + "height:" + Flower.height + "\n" + "allsize:"
-                            + Flower.allsize);
+                    window.getContentPane().add(Cup);
+                    result.setText(
+                            "diameter:" + Cup.diameter + "\n" + "height:" + Cup.height + "\n" + "volume:" + Cup.volume);
                 }
             }
         });
